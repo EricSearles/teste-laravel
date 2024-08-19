@@ -27,4 +27,15 @@ class UserRepository
         return $this->model->create($data);
     }
 
+    /**
+     * Busca um usuário pelo email
+     *
+     * @param string $email
+     * @return User|null
+     */
+    public function findByEmail(string $email): ?User
+    {
+        return $this->model->where('email', $email)->first();
+    }
+
 }
