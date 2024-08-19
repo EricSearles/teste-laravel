@@ -2,29 +2,28 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
+use App\Models\Endereco;
 
-class UserRepository
+class EnderecoRepository
 {
     protected $model;
 
     /**
      * @param $model
      */
-    public function __construct(User $model)
+    public function __construct(Endereco $model)
     {
         $this->model = $model;
     }
 
     /**
-     * Cria um novo usuário
+     * Cria um novo endereço
      *
      * @param array $data
-     * @return User
+     * @return Endereco
      */
-    public function create(array $data): User
+    public function create(array $data): Endereco
     {
         return $this->model->create($data);
     }
-
 }
