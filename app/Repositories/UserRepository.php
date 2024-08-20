@@ -24,6 +24,7 @@ class UserRepository
      */
     public function create(array $data): User
     {
+       // dd($data);
         return $this->model->create($data);
     }
 
@@ -36,6 +37,16 @@ class UserRepository
     public function findByEmail(string $email): ?User
     {
         return $this->model->where('email', $email)->first();
+    }
+
+    /**
+     * Retorna todos os usuários
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getAllUsers()
+    {
+        return $this->model->all();
     }
 
 }
