@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,4 +41,5 @@ use Illuminate\Support\Facades\Route;
         ->name('home')
         ->middleware('auth');
 
+    Route::middleware('auth:sanctum')->get('/user', [UserController::class, 'index']);
 

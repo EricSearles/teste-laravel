@@ -42,4 +42,9 @@
             </div>
         </div>
     </div>
+
+@section('scripts')
+    <!-- Inclua o script login.js compilado -->
+    <script src="{{ asset('js/login.js') }}"></script>
+@endsection
 @endsection
