@@ -64,3 +64,30 @@
 	
     A comunicação frontend-backend é feita via AJAX usando Axios.
 	Certifique-se de configurar o CORS corretamente se estiver acessando a API de um domínio diferente.
+
+
+
+## Exemplo de configuração para uso no front:
+# Requisição AJAX de Login no Frontend:
+const loginUser = async () => {
+    try {
+        const response = await axios.post('/login', {
+            email: 'user@example.com',
+            password: 'password123'
+        });
+
+        if (response.data.status === 'success') {
+            // Armazena o token no localStorage
+            localStorage.setItem('sanctum_token', response.data.token);
+
+            // Redireciona o usuário para a página home
+            window.location.href = '/home';
+        } else {
+            console.error('Login failed:', response.data.message);
+        }
+    } catch (error) {
+        console.error('Error during login:', error);
+    }
+};
+
+// Chame a função loginUser em resposta a um evento, como clique em um botão
