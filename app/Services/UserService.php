@@ -35,4 +35,40 @@ class UserService
     {
         return $this->userRepository->getAllUsers();
     }
+
+    /**
+     * Envia o link de redefinição de senha para o email fornecido
+     *
+     * @param string $email
+     * @return string
+     */
+    public function sendPasswordResetLink(string $email): string
+    {
+        $user = $this->userRepository->findByEmail($email);
+
+        if (!$user) {
+            return Password::INVALID_USER;
+        }
+
+        return $this->userRepository->sendResetLink(['email' => $email]);
+    }
+
+    /**
+     * Redefine a senha do usuário
+     *
+     * @param array $data
+     * @return string
+     */
+    public function resetPassword(array $data): string
+    {
+        return $this->userRepository->resetPassword($data, function ($user, $password) {
+            $user->forceFill([
+                'password' => Hash::make($password),
+                'remember_token' => Str::random(60),
+            ])->save();
+
+            event(new PasswordReset($user));
+        });
+    }
+
 }

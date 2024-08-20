@@ -6,11 +6,14 @@
             <div class="col-md-6">
                 <div class="card shadow">
                     <div class="card-header text-center">
-                        <h2>{{ __('Login') }}</h2>
+                        <h2>{{ __('Redefinir Senha') }}</h2>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('password.update') }}">
                             @csrf
+
+                            <input type="hidden" name="token" value="{{ $token }}">
+
                             <div class="form-group">
                                 <label for="email">{{ __('Email') }}</label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
@@ -27,16 +30,13 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                                <label class="form-check-label" for="remember">{{ __('Lembrar-me') }}</label>
+                            <div class="form-group">
+                                <label for="password-confirm">{{ __('Confirmar Senha') }}</label>
+                                <input type="password" class="form-control" id="password-confirm" name="password_confirmation" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
+                            <button type="submit" class="btn btn-primary btn-block">{{ __('Redefinir Senha') }}</button>
                         </form>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="{{ route('password.request') }}">{{ __('Esqueceu sua senha?') }}</a>
                     </div>
                 </div>
             </div>
