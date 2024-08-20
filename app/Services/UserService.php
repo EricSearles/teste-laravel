@@ -25,4 +25,14 @@ class UserService
         $data['password'] = Hash::make($data['password']);
         return $this->userRepository->create($data);
     }
+
+    /**
+     * Retorna todos os usuários cadastrados
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getAllUsers()
+    {
+        return $this->userRepository->getAllUsers();
+    }
 }

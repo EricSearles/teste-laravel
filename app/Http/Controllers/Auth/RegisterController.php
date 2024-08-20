@@ -39,7 +39,9 @@ class RegisterController extends Controller
             'number' => 'required|string|max:10',
         ]);
 
+
         $user = $this->userService->createUser($request->only('name', 'email', 'password'));
+
 
         $addressData = (new CepService())->getAddress($request->zip_code);
         $this->enderecoService->createEndereco($user, array_merge($addressData, [
