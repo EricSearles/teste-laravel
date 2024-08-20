@@ -80,6 +80,7 @@ return [
         'encrypt_cookies' => App\Http\Middleware\EncryptCookies::class,
         'verify_csrf_token' => App\Http\Middleware\VerifyCsrfToken::class,
     ],
+    
 
     'session_mode' => env('SANCTUM_SESSION_MODE', 'cookie'),
 
