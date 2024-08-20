@@ -7,61 +7,60 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Projeto Laravel com Sanctum
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requisitos
+- PHP >= 7.3
+- Composer
+- Node.js & npm
+- MySQL ou outro banco de dados
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Instalação
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/usuario/projeto-laravel-sanctum.git
+   cd projeto-laravel-sanctum
+   
+2. Instale as dependências do PHP:
+	composer install
+	
+3. Instale as dependências do Node.js:
+	npm install
 
-## Learning Laravel
+4. Configure o arquivo .env:
+	cp .env.example .env
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+	Configure as informações do banco de dados
+	Configure a URL da aplicação (MIX_APP_URL)
+	
+5. Gere a chave da aplicação:
+	php artisan key:generate
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+6. Execute as migrações:
+    php artisan migrate
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+7. Compile os assets front-end:
+	npm run dev
 
-## Laravel Sponsors
+8. Inicie o servidor local:
+	php artisan serve
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# teste-laravel
+## Uso
+	Acesse a aplicação via http://localhost:8000.
+	Utilize a página de cadastro para criar um novo usuário.
+	Faça login utilizando as credenciais criadas.
+	A página Home exibirá a lista de usuários cadastrados.
+	Estrutura do Projeto
+	Models: Localizados em app/Models
+	Controllers: Localizados em app/Http/Controllers
+	Services: Implementações específicas de lógica de negócio
+	Views: Localizadas em resources/views
+	Frontend: Scripts JavaScript e CSS em resources/js e resources/css
+	
+## Notas Adicionais
+	Este projeto utiliza Sanctum para autenticação de API.
+	
+    A comunicação frontend-backend é feita via AJAX usando Axios.
+	Certifique-se de configurar o CORS corretamente se estiver acessando a API de um domínio diferente.
